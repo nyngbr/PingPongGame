@@ -40,11 +40,35 @@ public class GamePanel extends JPanel implements Runnable{
     //Methods
     public void newBall(){}
     public void newPaddles(){}
-    public void paint(Graphics g){}
+    public void paint(Graphics g){
+        image = createImage(getWidth(),getHeight()); //getWidth and getHeight to retrieve the dimensions of our panel
+        graphics = image.getGraphics();
+        draw(graphics); //calling the draw() to draw all the components
+        g.drawImage(image,0,0,this);
+    }
     public void draw(Graphics g){}
     public void move(){}
     public void checkCollision(){}
-    public void run(){}
+    public void run(){
+        //Game loop
+        long lastTime = System.nanoTime();
+        double amountOfTicks = 60.0;
+        double ns = 1000000000 / amountOfTicks;
+        double delta = 0;
+
+        while (true){
+            long now = System.nanoTime();
+            delta += (now - lastTime)/ns;
+            lastTime = now;
+
+            if (delta >=1 ){
+                move();
+                checkCollision();
+                repaint();
+                delta--;
+            }
+        }
+    }
 
     public class AL extends KeyAdapter{     //AL short for Action Listener
         public void keyPressed(KeyEvent e){}
