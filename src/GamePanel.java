@@ -75,6 +75,37 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     public void checkCollision(){
+        //bounce the ball off top & bottom edges
+        if (ball.y <= 0){
+            ball.setYDirection(-ball.yVelocity);
+        }
+        if (ball.y >= GAME_HEIGHT - BALL_DIAMETER){
+            ball.setYDirection(-ball.yVelocity);
+        }
+
+        //bounce ball off paddles
+        if (ball.intersects(paddle1)){ //checks if there's any collision between ball and paddle1
+            ball.xVelocity = Math.abs(ball.xVelocity); // turning ball.xVelocity into a positive value...can multiple it by -1, works as well
+            ball.xVelocity ++; //to increase velocity after it bounces off the paddle (optional, just to add a little bit of difficulty)
+            if (ball.yVelocity > 0)
+                ball.yVelocity ++; //optional for more difficulties
+            else
+                ball.yVelocity --;
+            ball.setXDirection(ball.xVelocity);
+            ball.setYDirection(ball.yVelocity);
+        }
+
+        if (ball.intersects(paddle1)){ //checks if there's any collision between ball and paddle1
+            ball.xVelocity = Math.abs(ball.xVelocity); // turning ball.xVelocity into a positive value...can multiple it by -1, works as well
+            ball.xVelocity ++; //to increase velocity after it bounces off the paddle (optional, just to add a little bit of difficulty)
+            if (ball.yVelocity > 0)
+                ball.yVelocity ++; //optional for more difficulties
+            else
+                ball.yVelocity --;
+            ball.setXDirection(ball.xVelocity);
+            ball.setYDirection(ball.yVelocity);
+        }
+
         //stops paddles at window edges
         if (paddle1.y <= 0)
             paddle1.y = 0;
@@ -86,14 +117,6 @@ public class GamePanel extends JPanel implements Runnable{
         if (paddle2.y <= (GAME_HEIGHT - PADDLE_HEIGHT))
             paddle2.y = GAME_HEIGHT - PADDLE_HEIGHT;
 
-
-        //bounce the ball off top & bottom edges
-        if (ball.y <= 0){
-            ball.setYDirection(-ball.yVelocity);
-        }
-        if (ball.y >= GAME_HEIGHT - BALL_DIAMETER){
-            ball.setYDirection(-ball.yVelocity);
-        }
     }
 
 
