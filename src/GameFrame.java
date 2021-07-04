@@ -14,7 +14,7 @@ public class GameFrame extends JFrame{
         this.add(panel);
         this.setTitle("Pong Game    ||    nyngbr");
         this.setResizable(false); //prevents the player from resizing the frame
-        this.setBackground(Color.blue);
+        this.setBackground(Color.pink);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //close the app when you hit the "x" button
         this.pack();
         this.setVisible(true);
