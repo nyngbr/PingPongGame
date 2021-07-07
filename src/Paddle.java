@@ -3,8 +3,6 @@
 //importing libraries
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
 
 public class Paddle extends Rectangle{ //To display it like a rectangle
 
@@ -24,21 +22,21 @@ public class Paddle extends Rectangle{ //To display it like a rectangle
             case 1:
                 if (e.getKeyCode()==KeyEvent.VK_W){
                     setYDirection(-speed);
-                    move();
+                    //move();
                 }
                 if (e.getKeyCode()==KeyEvent.VK_S){
                     setYDirection(speed);
-                    move();
+                    //move();
                 }
                 break;
             case 2:
                 if (e.getKeyCode()==KeyEvent.VK_UP){
                     setYDirection(-speed);
-                    move();
+                    //move();
                 }
                 if (e.getKeyCode()==KeyEvent.VK_DOWN){
                     setYDirection(speed);
-                    move();
+                    //move();
                 }
                 break;
         }
@@ -48,21 +46,21 @@ public class Paddle extends Rectangle{ //To display it like a rectangle
             case 1:
                 if (e.getKeyCode()==KeyEvent.VK_W){
                     setYDirection(0);
-                    move();
+                    //move();
                 }
                 if (e.getKeyCode()==KeyEvent.VK_S){
                     setYDirection(0);
-                    move();
+                    //move();
                 }
                 break;
             case 2:
                 if (e.getKeyCode()==KeyEvent.VK_UP){
                     setYDirection(0);
-                    move();
+                    //move();
                 }
                 if (e.getKeyCode()==KeyEvent.VK_DOWN){
                     setYDirection(0);
-                    move();
+                    //move();
                 }
                 break;
         }
@@ -78,7 +76,7 @@ public class Paddle extends Rectangle{ //To display it like a rectangle
         if (id == 1)
             g.setColor(Color.black);
         else                            //id values are either 1 or 2, so no need for an other if statement
-            g.setColor(Color.white);
+            g.setColor(Color.green);
 
         g.fillRect(x,y,width,height); //fills the rectangles that represents the players
     }
